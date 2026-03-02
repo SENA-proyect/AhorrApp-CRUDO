@@ -1,75 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>no se</title>
-    <link rel="stylesheet" href="/static/css/moduloIngresos.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas - Ingresos</title>
+    <link rel="stylesheet" href="/static/css/generalModulos.css"> 
 </head>
 <body>
+
     <header class="header">
-
-        <Button class="inicio"><a href="#">inicio</a> inicio</Button>
-
-        <h1> Mi aplicacion de finanzas</h1>
-
-       
+        <a href="/templates/index.html" class="btn-inicio">Inicio</a>
+        <h1>Mi aplicación de finanzas</h1>
+        <hr class="linea">
+    </header>
 
     <main>
+        <p class="parrafo1">Gestiona de manera integral tus finanzas: ingresos, gastos, ahorros, deudas e imprevistos</p>
 
-        <h2> Gestiona de manera integral tus finanzas: ingresos, gastos, ahorros, deudas, dependientes y más</h2>
-
-        <nav class="navbar">
-            <div class="navdiv">
-              
-                <ul>
-
-                    <LI><a href="#">dashboard</a></LI>
-                    <li><a href="#">ingresos</a></li>
-                    <li><a href="#">gastos</a></li>
-                    <li><a href="#">ahorros</a></li>
-                    <li><a href="#">imprevistos</a></li>
-                    <li><a href="#">deudas</a></li>
-                    <li><a href="#">dependientes</a></li>
-                    <li><a href="#">categorias</a></li>
-                    <li><a href="#"> actividad</a></li>
-
-                </ul>
-
-                
-
-            </div>
+        <nav class="navbar" aria-label="Menú de secciones">
+            <ul class="nav-list">
+                <li><a href="/templates/moduloIngresos.html" class="nav-link active">Ingresos</a></li>
+                <li><a href="/templates/moduloGastos.html" class="nav-link">Gastos</a></li>
+                <li><a href="/templates/moduloAhorros.html" class="nav-link">Ahorros</a></li>
+                <li><a href="/templates/moduloImprevistos.html" class="nav-link">Imprevistos</a></li>
+                <li><a href="/templates/moduloDeudas.html" class="nav-link">Deudas</a></li>
+            </ul>
         </nav>
 
+        <section class="modulo-ahorros"> 
+            <header class="modulo-header">
+                <h3>Módulo de ingresos</h3>
+                <div class="acciones-ahorro">
+                    <button type="button" class="btn-secundario">Agregar ingreso</button>
+                </div>
+            </header>
+                
+            <div class="resumen-container">
+                <p class="total-ahorros">Total Ingresos: <strong>$0</strong></p>
+                
+
+                <div class="tabla-ingresos" style="margin-top: 20px;">
+                    <p class="mensaje-vacio">No hay ingresos registrados. Agrega tu primer ingreso para comenzar.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-
-        <div class="modulo">
-
-             <p>modulo de ingresos</p>
-
-             <button class="botoningreso">agregar ingreso</button>
-
-
-        </div>
-
-        
-        <div class="container">
-
-            <p>Total de Ingresos: $0</p>
-
-            <p class="texto">No hay ingresos registrados. Agrega tu primer ingreso para comenzar.</p>
-
-
-
-        </div>
-
-      
-
+    <footer class="footer-app">
+        <p>&copy; 2024 Mi Aplicación de Finanzas</p>
     </footer>
-
 
 </body>
 </html>

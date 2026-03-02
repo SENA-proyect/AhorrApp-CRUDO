@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Finanzas - Ahorros</title>
+    <link rel="stylesheet" href="/static/css/generalModulos.css"> 
 </head>
 <body>
-    
+
+    <header class="header">
+        <a href="/templates/index.html" class="btn-inicio">Inicio</a>
+        <h1>Mi aplicación de finanzas</h1>
+        <hr class="linea">
+    </header>
+
+    <main>
+        <p class="parrafo1">Gestiona de manera integral tus finanzas: ingresos, gastos, ahorros, deudas e imprevistos</p>
+
+        <nav class="navbar" aria-label="Menú de secciones">
+            <ul class="nav-list">
+                <li><a href="/templates/moduloIngresos.html" class="nav-link">Ingresos</a></li>
+                <li><a href="/templates/moduloGastos.html" class="nav-link">Gastos</a></li>
+                <li><a href="/templates/moduloAhorros.html" class="nav-link active">Ahorros</a></li>
+                <li><a href="/templates/moduloImprevistos.html" class="nav-link">Imprevistos</a></li>
+                <li><a href="/templates/moduloDeudas.html" class="nav-link">Deudas</a></li>
+            </ul>
+        </nav>
+
+
+        <section class="modulo-ahorros">
+            <header class="modulo-header">
+                <h3>Módulo de ahorros</h3>
+                <div class="acciones-ahorro">
+                    <button type="button" class="btn-primario">Agregar dinero</button>
+                    <button type="button" class="btn-secundario">Nueva Meta</button>
+                </div>
+            </header>
+                
+            <div class="resumen-container">
+                <p class="total-ahorros">Total Ahorros: <strong>$0</strong></p>
+                <p class="mensaje-vacio">No hay metas de ahorro creadas. Crea tu primera meta para comenzar a ahorrar.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-app">
+        <p>&copy; 2024 Mi Aplicación de Finanzas</p>
+    </footer>
+
 </body>
 </html>
