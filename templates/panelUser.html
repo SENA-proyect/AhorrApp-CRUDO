@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Usuarios</title>
+    <link rel="stylesheet" href="/static/panel.csss">
+</head>
+<body>
+    <!-- {% include 'navbar.html' %} -->
+    <div class="inf-container">
+        <h2>Usuarios Registrados</h2>
+
+        <div class="inf-listas">
+            {% for usuario in usuarios %}
+            <div class="general-card">
+                <p><strong>ID:</strong> {{ usuario.ID_usuario }}</p>
+                <p><strong>Nombre:</strong> {{ usuario.Nombre }}</p>
+                <p><strong>Apellido:</strong> {{ usuario.Apellido if usuario.Apellido else 'No asignado' }}</p>            
+                <p><strong>Email:</strong> {{ usuario.Email }}</p>
+                <p><strong>Rol:</strong> 
+                    {% if usuario.Rol == 'Administrador' %}
+                        <span class="badge-admin">Administrador</span>
+                    {% else %}
+                        <span class="badge-user">Usuario</span>
+                    {% endif %}
+                </p>
+            
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- {% include 'footer.html' %} -->
+</body>
+</html>

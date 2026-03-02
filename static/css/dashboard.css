@@ -1,0 +1,192 @@
+:root {
+
+  /* ========================================================= */
+  /* =================== COLOR GLOBAL APP ==================== */
+  /* ========================================================= */
+  --color-primary: #4CB04C;
+  --color-primary-dark: #2E7D2E;
+  --color-primary-medium: #3DA63D;
+  --color-primary-soft: rgba(76, 176, 76, 0.432);
+  --color-primary-hover: rgb(67, 163, 67);
+  --color-primary-low: rgb(130, 241, 130);
+  --color-primary-light: rgb(232, 255, 232);
+
+  /* ========================================================= */
+  /* ======================= TIPOGRAFÍA ====================== */
+  /* ========================================================= */
+
+  /* tamaños */
+  --text-sm: 0.85rem;
+  --text-md: 1rem;
+  --text-lg: 1.35rem;
+
+  /* pesos */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-bold: 600;
+
+  /* colores por jerarquía */
+  --text-sm-color: #9AA19A;
+  --text-md-color: #2D2D2D;
+  --text-lg-color: #1F2937;
+
+  /* hover de texto */
+  --text-hover-dark: #1F2937;
+  --text-hover-light: #6B7280;
+
+  /* ========================================================= */
+  /* ========================= NEUTROS ======================= */
+  /* ========================================================= */
+  --color-bg-main: #FFFFFF;
+  --color-bg-card: #F4F6F4;
+  --color-text-main: #2D2D2D;
+  --color-text-muted: #9AA19A;
+
+  /* ========================================================= */
+  /* ========================= ESTADOS ======================= */
+  /* ========================================================= */
+  --color-error: #C04141;
+  --color-warning: #D97706; 
+
+  /* ========================================================= */
+  /* =========================BOX 2=========================== */
+  /* ========================================================= */
+  
+  --insight-bg: #F2F7FF;
+  --insight-border: #A9C8FF;
+  --insight-text: #256DFF;
+  --insight-title: #1E6FFF;
+}
+*{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.box {
+    padding: 50px;
+    width: 92%;
+    border-radius: 10px;
+    margin-top: -5px;
+    border: 3px solid;
+    border-color: var(--color-primary-low);
+    background-color: var(--color-primary-light);
+}
+.text-box {
+    text-align: left;
+    margin-top: -30px;
+}
+
+.box2 {
+    padding: 50px;
+    width: 92%;
+    border-radius: 10px;
+    margin-top: -5px;
+    border: 3px solid;
+    border-color: var(--insight-border);
+    background-color: var(--insight-bg);
+}
+
+.box-dashboard {
+    background-color: var(--color-primary-low);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 50px;
+
+}
+.dashboard-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 20px;
+}
+.header-left h2 {
+  margin: 0;                     /* Quita espacios por defecto */
+  font-size: 22px;
+  font-weight: bold;
+  color: #000000;                /* Verde principal */
+}
+.header-left p {
+  margin: 4px 0 0;               /* Pequeño espacio arriba */
+  font-size: 14px;
+  color: #00cc55;                /* Verde más suave */
+}
+.header-right {
+    display: flex;
+}
+.btn-outline {
+    border: 1px solid;
+    cursor: pointer;
+    padding: 8px 14px;
+    margin-top: 5px
+
+}
+.btn-solid {
+    cursor: pointer;
+    padding: 8px 14px;
+    margin-top: 5px;
+    border: 0.5px solid;
+}
+
+button:hover {
+    background-color: var(--color-primary-soft);
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transform: translateY(-2px);
+}
+/* CSS INICIO NAVBAR*/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    background-color: var(--color-bg-main);
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: var(--color-primary-low);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    border-radius: 10px;
+}
+button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--color-bg-main);
+    border: none;
+    margin: 0;
+    cursor: pointer;
+}
+.buttonHeader {
+    padding: 20px;
+    background-color: var(--color-bg-main);
+    margin: 20px;
+    width: 140px;
+    border: 1px solid;
+    border-color: var(--color-primary-low);
+    text-align: center;
+    cursor: pointer;
+    display: flex; 
+
+}
+.buttonCerrarSesion {
+    padding: 0;
+    background-color: var(--color-bg-main);
+    margin: 20px;
+    width: 150px;
+    border: 1px solid;
+    border-color: var(--color-primary-low);
+    text-align: center;
+    margin-left: 70%;
+}
+
+/* CSS NAVBAR FINAL*/
+
+@media (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+}
