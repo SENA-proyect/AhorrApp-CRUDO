@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Finanzas - Ingresos</title>
+    <link rel="stylesheet" href="/static/css/generalModulos.css"> 
 </head>
 <body>
-    
+
+    <header class="header">
+        <a href="/templates/index.html" class="btn-inicio">Inicio</a>
+        <h1>Mi aplicación de finanzas</h1>
+        <hr class="linea">
+    </header>
+
+    <main>
+        <p class="parrafo1">Gestiona de manera integral tus finanzas: ingresos, gastos, ahorros, deudas e imprevistos</p>
+
+        <nav class="navbar" aria-label="Menú de secciones">
+            <ul class="nav-list">
+                <li><a href="/templates/moduloIngresos.html" class="nav-link">Ingresos</a></li>
+                <li><a href="/templates/moduloGastos.html" class="nav-link">Gastos</a></li>
+                <li><a href="/templates/moduloAhorros.html" class="nav-link">Ahorros</a></li>
+                <li><a href="/templates/moduloImprevistos.html" class="nav-link">Imprevistos</a></li>
+                <li><a href="/templates/moduloDeudas.html" class="nav-link">Deudas</a></li>
+                <li><a href="/templates/moduloDependientes.html" class="nav-link active">Dependientes</a></li>
+                <li><a href="/templates/modulosCategorias.html" class="nav-link">Categorias</a></li>
+
+            </ul>
+        </nav>
+
+        <section class="modulo-ahorros"> 
+            <header class="modulo-header">
+                <h3>Módulo de dependientes</h3>
+                <div class="acciones-ahorro">
+                    <button type="button" class="btn-secundario">Agregar dependiente</button>
+                </div>
+            </header>
+                
+            <div class="resumen-container">
+                <p class="total-ahorros">Total dependientes: <strong>0</strong></p>
+                
+
+                <div class="tabla-ingresos" style="margin-top: 20px;">
+                    <p class="mensaje-vacio">No hay dependientes registrados. Agrega tu primer dependiente para comenzar.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-app">
+        <p>&copy; 2024 Mi Aplicación de Finanzas</p>
+    </footer>
+
 </body>
 </html>
