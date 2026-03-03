@@ -8,6 +8,10 @@
   --color-primary-medium: #3DA63D;
   --color-primary-soft: rgba(76,176,76,0.12);
   --color-primary-hover: #43A343;
+  --color-primary-low: rgb(130, 241, 130);
+  --color-primary-light: rgb(232, 255, 232);
+  --color-primary-transparent: rgba(76, 176, 76, 0.192);
+  --color-bg-transparent: rgba(112, 112, 112, 0.315);
 
   /* ========================================================= */
   /* ======================= TIPOGRAFÍA ====================== */
