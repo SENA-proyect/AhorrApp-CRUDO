@@ -1,0 +1,165 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px 50px;
+}
+
+*¨{
+    text-decoration: none;
+
+}
+
+.inicio{
+    display: flex;
+    height: 40px;
+    width: 70px;
+    position: absolute;
+    left: 92%;
+    cursor: pointer;
+    border-radius: 5px 5px;
+    background-color: white;
+    padding: 4px 16px;
+    border-color: #5dff5d;
+    padding: 10px 15px;
+}
+.inicio:hover{
+    background-color: #5dff5d ;
+    color: #000000;
+    transition: 0.3s;
+}
+
+.modulo{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.botondinero{
+    width: 200px;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px 10px;
+    border: 2px solid #00ff00;
+    font-weight: bold;
+    color: #00ff00;
+}
+
+.botondinero:hover{
+    background-color: #2bc053;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.botonmeta{
+    width: 200px;
+    background-color: #1beb1b;
+    padding: 10px 20px;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px 10px;
+    border: none;
+    font-weight: bold;
+    color: white;
+}
+
+.botonmeta:hover{
+    background-color: #2bc053;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+h1{
+    top: 10px;
+    font-size: 35px;
+    color: #2E7D2E;
+
+}
+
+h3{
+    font-size: 20px;
+    color: #2E7D2E;
+}
+
+hr{
+    border: 1px solid #b5ffb5;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    margin:0px 0px;
+}
+
+.parrafo1{
+    font-size: 18px;
+    color: #15ad15;
+}
+
+.navbar{
+    background-color: #77ff77;
+    font-family: Arial;
+    border-radius: 10px 10px;
+    margin: 20px 10px;
+
+}
+.navdiv{
+    display: flex;
+    align-items: center;
+    word-spacing: 10px;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+}
+
+li a{
+    color: black;
+    font-size: 20px;
+    margin-right: 10px;
+
+}
+
+.container{
+    width: 1400px;
+    height: 200px;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border: 2px solid rgba(68, 244, 59, 0.575);
+    left: 1%;
+    border-radius: 10px 10px;
+}
+
+.texto{
+    text-align: center;
+    color: #00000079;
+}
+
+@media(max-width: 768px) {
+    body{
+        background-color: rgb(255, 255, 255);
+    }
+    
+}
+
+.navboton{
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px 10px;
+}
+
+.navboton:hover{
+    background-color: #2bc053;
+    color: #000000;
+    transition: 0.3s;
+}
+
