@@ -61,12 +61,10 @@
 }
 .firstSection {
     background-color: var(--color-primary-low);
-}
-.textIndex {
     text-align: center;
     padding: 20px;
-
 }
+
 .h1-mainContent {
     font-size: 90px;
     letter-spacing: 5px;
@@ -113,7 +111,6 @@ button:hover {
 .caracteristicasPrincipales {
     background-color: var(--color-primary-soft);
     height: 70vh;
-    margin-top: 100px;
 }
 
 .boxes {
@@ -142,8 +139,7 @@ button:hover {
 }
 .contactenos {
     background-color: var(--color-primary-medium);
-    display: grid;
-    place-items: center;
+    display: flex;
 }
 .formContactenos {
     background-color: red;
@@ -158,8 +154,8 @@ button:hover {
     width: 100%;
 }
 .btn-contactenos {
-    padding: 10px;
-    width: 100%;
+    padding: 5px;
+    width: 10%;
 }
 .marquillaFooter{
     background-color: var(--color-primary-light);
