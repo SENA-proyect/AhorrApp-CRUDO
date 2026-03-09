@@ -1,3 +1,7 @@
+*{
+    margin-left: 20px;
+    margin-right: 20px;
+}
 :root {
   /* ========================================================= */
   /* =================== COLOR GLOBAL APP ==================== */
@@ -10,6 +14,17 @@
   --color-primary-low: #86efac;
   --color-primary-light: #dcfce7;
   --color-primary-transparent: rgba(74, 222, 128, 0.08);
+
+    /* Fondo principal */
+  --bg-primary: #f0f4fb;
+  --bg-secondary: #ffffff;
+  
+  /* Bordes */
+  --border-color: #d4dce9;
+  
+  /* Textos */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a5568;
 
   /* ========================================================= */
   /* ======================= TIPOGRAFÍA ====================== */
@@ -150,11 +165,9 @@
   --background: #f8fffe;
   --foreground: #145e0f;
 }
-*{
-    margin-left: 20px;
-    margin-right: 20px;
-}
+
 .box {
+    display: flex;
     padding: 50px;
     width: 92%;
     border-radius: 10px;
@@ -169,13 +182,18 @@
 }
 
 .box2 {
+    display: flex;
     padding: 50px;
     width: 92%;
     border-radius: 10px;
     margin-top: -5px;
     border: 3px solid;
-    border-color: var(--insight-border);
-    background-color: var(--insight-bg);
+    border-color: var(--border-color);
+    background-color: var(--bg-primary);
+}
+.boxes {
+    display: flex;
+    justify-content: space-between;
 }
 
 .box-dashboard {
@@ -192,8 +210,13 @@
     border-radius: 10px;
     padding: 20px;
 }
+.sectionHeader {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
 .header-left h2 {
-  margin: 0;                     /* Quita espacios por defecto */
+  margin: 0;                     /* Quita espacios por defecto */   
   font-size: 22px;
   font-weight: bold;
   color: #000000;                /* Verde principal */
@@ -219,9 +242,21 @@
     margin-top: 5px;
     border: 0.5px solid;
 }
+.box-section1 {
+    margin: 0;
+    background-color: var(--color-bg-main);
+    padding: 30px;
+    width: 12rem;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: var(--color-primary-low);
+    background: linear-gradient(var(--color-bg-main), var(--color-primary-light));
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
 
 button:hover {
-    background-color: var(--color-primary-soft);
+    background-color: var(--color-primary-low);
     transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
     transform: translateY(-2px);
 }
@@ -239,7 +274,7 @@ body {
 }
 
 .navbar {
-    background-color: var(--color-primary-low);
+    background-color: var(--color-primary-soft);
     margin: 0;
     padding: 0;
     display: flex;
