@@ -1,6 +1,5 @@
 * {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -154,14 +153,15 @@
 
 
 body {
-    background: linear-gradient(1000deg, var(--color-primary-light), var(--color-primary-dark));
+    background: radial-gradient(circle, var(--color-primary-light), var(--color-primary-medium));
 }
 
 .main-content {
     background-color: var(--color-primary-transparent);
     position: absolute;
-    top: 24%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 25%;
     height: 35%;
     padding: 100px;
@@ -170,7 +170,7 @@ body {
     text-align: center;
 }
 .inputlab {
-    width: 100%;
+    width: 90%;
     height: 40px;
     border-bottom:solid #00000032 2px;
     outline: none;

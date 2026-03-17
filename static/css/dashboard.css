@@ -279,7 +279,7 @@ button:hover {
   border-radius: 8px;
   display: inline-block;
   transition: 0.3s;
-  background-color: var(--color-bg-card); /* ← de módulos */
+  background-color: var(--color-bg-main); /* ← de módulos */
   cursor: pointer;
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
@@ -292,6 +292,7 @@ button:hover {
   background-color: var(--color-primary-light);
   color: var(--color-primary-dark);
   transform: translateY(-2px);
+  font-weight: bolder;
 }
 
 /* ========================================================= */
@@ -332,8 +333,7 @@ button:hover {
 /* ========================= BOXES ========================= */
 /* ========================================================= */
 
-.box {
-  display: flex;
+.box1 {
   align-items: center;
   gap: 16px;
   padding: 24px;
@@ -343,8 +343,27 @@ button:hover {
   background-color: var(--color-primary-light);
 }
 
+.iconAndText {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+}
+
 .text-box {
   text-align: left;
+}
+
+.pSection2Box {
+  font-size: 30px;
+  font-weight: bolder;
+  color: var(--color-warning);
+}
+
+.pSection2Box2 {
+  font-weight: bolder;
+  color: var(--color-warning);
 }
 
 .box2 {
