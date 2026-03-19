@@ -1,0 +1,23 @@
+vistas a trabajar
+1- index.html, formulario de contactenos ubicado en el footer
+    1.2- Crear la tabla de "contactenos" en la db
+
+2- login.html, formulario de iniciar sesion
+
+3- olvidar_contraseña.html, ver como hacer que la informacion registrada en el formulario se envie directo al correo deligenciado
+
+4- registrar.html, formulario de registrarse
+
+5- VentanaModalActividad.html, buscar la relacion y funcionamiento dentro del aplicativo (implementarlo como componente al usar react)
+
+6- VentanaModalDashboard, buscar la relacion y funcionamiento dentro del aplicativo (implementarlo como componente al usar react)
+
+7- VentanaModalDependientes, buscar la relacion y funcionamiento dentro del aplicativo (implementarlo como componente al usar react)
+
+8- verificacion.html, buscar como hacer que efectivamente compruebe que el  codigo registrado sea el mismo que se envio al correo registrado en el formulario de "olvidar_contraseña"
+
+- separar modulos de paneles
+
+- implementar logica jinja2
+
+- 
