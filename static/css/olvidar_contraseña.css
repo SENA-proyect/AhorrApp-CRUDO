@@ -1,0 +1,240 @@
+:root {
+  /* ========================================================= */
+  /* =================== COLOR GLOBAL APP ==================== */
+  /* ========================================================= */
+  --color-primary:             #4CB04C;
+  --color-primary-dark:        #2E7D2E;
+  --color-primary-medium:      #3DA63D;
+  --color-primary-soft:        rgba(76, 176, 76, 0.12);
+  --color-primary-hover:       #43A343;
+  --color-primary-low:         rgb(130, 241, 130);
+  --color-primary-light:       rgb(232, 255, 232);
+  --color-primary-transparent: rgba(76, 176, 76, 0.08);
+
+  --bg-primary:    #f0f4fb;
+  --bg-secondary:  #ffffff;
+
+  --border-color:  #d4dce9;
+
+  --text-primary:   #1a1a1a;
+  --text-secondary: #4a5568;
+
+  /* ========================================================= */
+  /* ======================= TIPOGRAFÍA ====================== */
+  /* ========================================================= */
+  --text-sm: 0.85rem;
+  --text-md: 1rem;
+  --text-lg: 1.35rem;
+
+  --font-regular: 400;
+  --font-medium:  500;
+  --font-bold:    600;
+
+  --text-sm-color: #9AA19A;
+  --text-md-color: #2D2D2D;
+  --text-lg-color: #1F2937;
+
+  --text-hover-dark:  #1F2937;
+  --text-hover-light: #6B7280;
+
+  /* ========================================================= */
+  /* ========================= NEUTROS ======================= */
+  /* ========================================================= */
+  --color-bg-main:    #FFFFFF;
+  --color-bg-card:    #F4F6F4;
+  --color-text-main:  #2D2D2D;
+  --color-text-muted: #9AA19A;
+
+  /* ========================================================= */
+  /* ========================= ESTADOS ======================= */
+  /* ========================================================= */
+  --color-error:   #C04141;
+  --color-warning: #D97706;
+
+  /* ========================================================= */
+  /* ===================== MODULO INGRESOS =================== */
+  /* ========================================================= */
+  --ingresos-base:  #2FAF7F;
+  --ingresos-dark:  #1F7A59;
+  --ingresos-light: #5FCFA6;
+  --ingresos-bg:    #E7F7F1;
+  --ingresos-hover: #27996E;
+
+  /* ========================================================= */
+  /* ====================== MODULO AHORROS =================== */
+  /* ========================================================= */
+  --ahorros-base:  #7A5AF5;
+  --ahorros-dark:  #5337C9;
+  --ahorros-light: #A18BFF;
+  --ahorros-bg:    #F1EDFF;
+  --ahorros-hover: #6949E6;
+
+  /* ========================================================= */
+  /* ======================= MODULO GASTOS =================== */
+  /* ========================================================= */
+  --gastos-base:  #ffc054;
+  --gastos-dark:  #B96F00;
+  --gastos-light: #FBCB6A;
+  --gastos-bg:    #FFF4DB;
+  --gastos-hover: #E08E00;
+
+  /* ========================================================= */
+  /* ==================== MODULO IMPREVISTOS ================= */
+  /* ========================================================= */
+  --imprevistos-base:  #ff5359;
+  --imprevistos-dark:  #A72B2F;
+  --imprevistos-light: #F07A7E;
+  --imprevistos-bg:    #FDEBEC;
+  --imprevistos-hover: #D63B40;
+
+  /* ========================================================= */
+  /* ======================== MODULO DEUDAS ================== */
+  /* ========================================================= */
+  --deudas-base:  #4d91ff;
+  --deudas-dark:  #1D4ED8;
+  --deudas-light: #7FB0FF;
+  --deudas-bg:    #EAF2FF;
+  --deudas-hover: #256EEA;
+
+  /* ========================================================= */
+  /* ========== VARIABLES ADICIONALES COMPATIBILIDAD ========= */
+  /* ========================================================= */
+  --border:            rgba(76, 176, 76, 0.2);
+  --input:             transparent;
+  --input-background:  #f0fdf4;
+  --switch-background: #cbced4;
+  --ring:              #4CB04C;
+
+  --radius: 0.625rem;
+
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  --chart-1: #4CB04C;
+  --chart-2: rgb(130, 241, 130);
+  --chart-3: rgb(200, 255, 200);
+  --chart-4: rgb(232, 255, 232);
+  --chart-5: #f0fdf4;
+
+  --sidebar:                  #FFFFFF;
+  --sidebar-foreground:       #2D2D2D;
+  --sidebar-primary:          #4CB04C;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent:           rgb(232, 255, 232);
+  --sidebar-accent-foreground: #2E7D2E;
+  --sidebar-border:           rgba(76, 176, 76, 0.2);
+  --sidebar-ring:             #4CB04C;
+
+  --card:             #F4F6F4;
+  --card-foreground:  #2D2D2D;
+  --popover:          #ffffff;
+  --popover-foreground: #2D2D2D;
+
+  --primary:             #4CB04C;
+  --primary-foreground:  #ffffff;
+  --secondary:           rgb(232, 255, 232);
+  --secondary-foreground: #2E7D2E;
+  --muted:               #F4F6F4;
+  --muted-foreground:    #9AA19A;
+  --accent:              rgb(200, 255, 200);
+  --accent-foreground:   #2E7D2E;
+  --destructive:         #C04141;
+  --destructive-foreground: #ffffff;
+
+  --background: #FFFFFF;
+  --foreground:  #2D2D2D;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--color-bg-forms);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    text-align: center;
+    margin-top: 140px;
+    color: var(--color-primary);
+    padding: 20px;
+    font-size: 30px;
+}
+
+.container{
+    width: 27%;
+    height: 27%;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: var(--color-bg-main);
+    border: 1px solid black;
+    box-sizing: border-box;
+    
+}
+
+h2{
+    font-size: 25px;
+    text-align: left;
+    padding: 5px 20px;
+    color: var(--color-primary-dark);
+}
+
+h3{
+    font-size: 14px;
+    text-align: left;
+    padding: 20px 20px;
+}
+
+.correo{
+    width: 100%;
+    border: none;
+    background: none;
+    border-bottom:solid #00000032 2px;
+    padding: 25px;
+    outline: none;
+    margin-bottom: 20px;
+    box-shadow: none;
+} 
+
+.correo:focus{
+    border-bottom: solid var(--color-primary-hover) 2px;
+}
+
+.form_button{
+    display: flex;
+    justify-content: space-between;
+    color: #dffbe7;
+}
+.salir{
+    text-decoration: none;
+    display: flex;
+    padding: 10px 20px;
+    font-size: 14px;
+    outline: black solid 0.5px;
+    color: black;
+    cursor: pointer;
+
+}
+
+.salir:hover{
+    background-color: var(--color-error);
+    color: #000000;
+    transition: 0.3s;
+}
+
+.enviar{
+    background-color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.enviar:hover{
+    background-color: var(--color-primary-hover);
+    color: #000000;
+    transition: 0.3s;
+}

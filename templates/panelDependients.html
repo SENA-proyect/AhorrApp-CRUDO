@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Dependientes</title>
+    <link rel="stylesheet" href="/static/css/panel.css">
+</head>
+<body>
+<!-- {% include 'navbar.html' %} -->
+
+    <div class="inf-container">
+        <h2>Dependientes</h2>
+        <div class="inf-listas">
+            {% for dependiente in dependientes %}
+            <div class="general-card">
+                <p><strong>ID:</strong> {{ dependiente.ID_dependientes }}</p> 
+                <p><strong>Dependiente de:</strong> {{ dependiente.usuario_nombre }}</p> 
+                <p><strong>Nombre:</strong> {{ dependiente.Nombre }}</p>
+                <p><strong>Relación:</strong> {{ dependiente.Relacion }}</p>
+                <p><strong>Ocupación:</strong> {{ dependiente.Ocupacion or 'N/A' }}</p>
+                <p><strong>Fecha Nac.:</strong> {{ dependiente.Fecha_nacimiento }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+<!-- {% include 'footer.html' %}         -->
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Historial</title>
+    <link rel="stylesheet" href="/static/css/vista.csss">
+</head>
+<body>
+    <!-- {% include 'navbar.html' %} -->
+    <div class="inf-container">
+        <h2>Historial de Acciones</h2>
+        <div class="inf-listas">
+            {% for log in historial %}
+            <div class="general-card log-card">
+                <p><strong>Fecha:</strong> {{ log.fecha.strftime('%d/%m/%Y %H:%M') if log.fecha else 'N/A' }}</p>
+                <p><strong>Usuario:</strong> {{ log.usuario_nombre }}</p>
+                <p><strong>Acción:</strong> <span class="txt-accion">{{ log.accion }}</span></p>
+                <p><strong>Detalles:</strong> <em>{{ log.detalles or 'Sin detalles' }}</em></p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <!-- {% include 'footer.html' %} -->
+</body>
+</html>
