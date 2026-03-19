@@ -16,6 +16,10 @@
   --color-primary-low: #86efac;
   --color-primary-light: #dcfce7;
   --color-primary-transparent: rgba(74, 222, 128, 0.08);
+  --color-white: rgba(255, 255, 255);
+  --color-black: rgba(0, 0, 0);
+  --color-grey: rgb(90, 90, 90);
+
 
   /* ========================================================= */
   /* ======================= TIPOGRAFÍA ====================== */
@@ -160,16 +164,19 @@
 
 .header {
     display: flex;
+    box-sizing: border-box;
     justify-content: space-between;
+    background: linear-gradient(var(--color-bg-main), var(--color-bg-card));
+    align-items: center;
+    padding: 0 20px;
     
 }
 .main-content {
-    margin: 0;
+    box-sizing: border-box;
 }
 .firstSection {
-    background-color: var(--color-primary-low);
+    background:linear-gradient(var(--color-bg-card), var(--color-primary-soft)) ;
     text-align: center;
-    padding: 20px;
 }
 
 .h1-mainContent {
@@ -180,8 +187,6 @@
     background-size: contain;
     background-position: center;
     background-clip: text;
-
-   
 }
 .p-mainContent {
     font-size: 25px;
@@ -190,13 +195,11 @@
     word-spacing: 8px;
 }
 .header-left {
-    letter-spacing: 2px;
     color: var(--color-primary);
-    margin-left: 140px;
+    padding: 20px;
 }
 .header-right {
-    display: flex;  
-    margin-right: 140px;
+    display: flex;
 }
 .btn-iniciarsesion{
     padding: 10px;
@@ -211,12 +214,11 @@
 }
 button:hover {
     background-color: var(--color-bg-main);
-    transition: all 500ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: all 200ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
     transform: translateY(-2px);
-    background: linear-gradient(rgb(197, 238, 197), rgb(255, 255, 255));
 }
 .caracteristicasPrincipales {
-    background-color: var(--color-primary-soft);
+    background: linear-gradient(var(--color-primary-soft), var(--color-primary-light));
     height: 70vh;
 }
 
@@ -264,16 +266,169 @@ button:hover {
     padding: 5px;
     width: 10%;
 }
-.footer-app {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 12px;
-  background-color: var(--color-bg-main);
-  border-top: 1px solid var(--color-primary-low);
-  color: var(--color-text-muted);
+/*FOOTER*/
+.f9 {
+  background: linear-gradient(var(--color-primary-light), var(--color-primary-medium));
+  padding: 5rem 6vw 2rem;
+  color: var(--color-black);
+  position: sticky;
+  overflow: hidden;
+}
+
+/* Luz de fondo decorativa */
+.f9::before {
+  position: absolute;
+  top: -80px;
+  left: 30%;
+  width: 500px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(64, 0, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+ 
+/* Sección superior — grid de 2 columnas */
+.f9 .top {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+ 
+/* Columna izquierda — brand */
+.f9 .info .brand {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  letter-spacing: 5px;
+}
+ 
+.f9 .info .brand span {
+  color: var(--color-primary-dark);
+}
+ 
+.f9 .info .tagline {
+  font-size: 14px;
+  color: var(--color-black);
+  line-height: 1.8;
+  max-width: 280px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+ 
+/* Nav de links */
+.f9 .info .links {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+ 
+.f9 .info .links a {
   font-size: 12px;
-  z-index: 100;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+ 
+.f9 .info .links a:hover {
+  color: var(--color-primary-dark);
+}
+ 
+/* Columna derecha — título y descripción del formulario */
+.f9 .form-side h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dr);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+ 
+.f9 .form-side > p {
+  font-size: 13px;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+ 
+/* Grid de inputs 2 columnas */
+.f9 .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+ 
+/* Inputs y textarea */
+.f9 .form-grid input,
+.f9 .msg-field {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 11px 14px;
+  color: var(--color-white);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+ 
+.f9 .form-grid input::placeholder,
+.f9 .msg-field::placeholder {
+  color: var(--color-grey);
+}
+ 
+.f9 .form-grid input:focus,
+.f9 .msg-field:focus {
+  border-color: var(--color-primary-dark);
+}
+ 
+/* Textarea — ancho completo */
+.f9 .msg-field {
+  width: 100%;
+  display: block;
+  margin-bottom: 12px;
+}
+ 
+/* Fila de envío */
+.f9 .submit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ 
+.f9 .submit-row .privacy {
+  font-size: 11px;
+  color: var(--color-black);
+}
+ 
+/* Botón enviar — override del button:hover global */
+.f9 .submit-btn {
+  background: var(--color-primary-hover);
+  color: #0f0f14;
+  border: none;
+  padding: 11px 28px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+ 
+.f9 .submit-btn:hover {
+  background: var(--color-primary-dark);
+  transform: none;
+}
+ 
+/* Barra inferior */
+.f9 .bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  font-size: 15px;
+  color: var(--color-black);
+  gap: 0.5rem;
 }
