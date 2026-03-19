@@ -122,29 +122,29 @@
   --chart-4: rgb(232, 255, 232);
   --chart-5: #f0fdf4;
 
-  --sidebar:                  #FFFFFF;
-  --sidebar-foreground:       #2D2D2D;
-  --sidebar-primary:          #4CB04C;
+  --sidebar:                    #FFFFFF;
+  --sidebar-foreground:         #2D2D2D;
+  --sidebar-primary:            #4CB04C;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent:           rgb(232, 255, 232);
-  --sidebar-accent-foreground: #2E7D2E;
-  --sidebar-border:           rgba(76, 176, 76, 0.2);
-  --sidebar-ring:             #4CB04C;
+  --sidebar-accent:             rgb(232, 255, 232);
+  --sidebar-accent-foreground:  #2E7D2E;
+  --sidebar-border:             rgba(76, 176, 76, 0.2);
+  --sidebar-ring:               #4CB04C;
 
-  --card:             #F4F6F4;
-  --card-foreground:  #2D2D2D;
-  --popover:          #ffffff;
+  --card:               #F4F6F4;
+  --card-foreground:    #2D2D2D;
+  --popover:            #ffffff;
   --popover-foreground: #2D2D2D;
 
-  --primary:             #4CB04C;
-  --primary-foreground:  #ffffff;
-  --secondary:           rgb(232, 255, 232);
+  --primary:              #4CB04C;
+  --primary-foreground:   #ffffff;
+  --secondary:            rgb(232, 255, 232);
   --secondary-foreground: #2E7D2E;
-  --muted:               #F4F6F4;
-  --muted-foreground:    #9AA19A;
-  --accent:              rgb(200, 255, 200);
-  --accent-foreground:   #2E7D2E;
-  --destructive:         #C04141;
+  --muted:                #F4F6F4;
+  --muted-foreground:     #9AA19A;
+  --accent:               rgb(200, 255, 200);
+  --accent-foreground:    #2E7D2E;
+  --destructive:          #C04141;
   --destructive-foreground: #ffffff;
 
   --background: #FFFFFF;
@@ -158,10 +158,10 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--color-bg-main);
-  margin: 20px auto;        /* ← de módulos */
-  max-width: 1400px;        /* ← de módulos */
-  padding: 0 20px;          /* ← de módulos */
   color: var(--color-text-main);
+  margin: 20px auto;
+  max-width: 1400px;
+  padding: 0 20px;
 }
 
 /* ========================================================= */
@@ -169,21 +169,21 @@ body {
 /* ========================================================= */
 
 .header {
-  background-color: var(--color-bg-main);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  border-bottom: 2px solid var(--color-primary-low); /* ← de módulos */
-  margin: 0 auto 20px;      /* ← de módulos */
+  margin: 0 auto 20px;
   width: 100%;
+  background-color: var(--color-bg-main);
+  border-bottom: 2px solid var(--color-primary-low);
 }
 
 .header h1 {
   margin: 0;
-  font-size: 28px;          /* ← de módulos */
+  font-size: 28px;
   font-weight: bold;
-  color: var(--color-primary-dark); /* ← de módulos */
+  color: var(--color-primary-dark);
 }
 
 .header-left h2 {
@@ -216,7 +216,7 @@ button {
   border: none;
   cursor: pointer;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86); /* ← de módulos */
+  transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 button:hover {
@@ -229,30 +229,24 @@ button:hover {
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background-color: var(--color-bg-main);
   width: 140px;
   border: 1px solid var(--color-primary-low);
   text-align: center;
-  cursor: pointer;
 }
 
 .buttonCerrarSesion {
   padding: 10px 16px;
-  background-color: var(--color-bg-main);
   width: 150px;
   border: 1px solid var(--color-primary-low);
   text-align: center;
 }
 
 .btn-outline {
-  border: 1px solid var(--color-primary-low);
-  cursor: pointer;
   padding: 8px 14px;
-  background-color: var(--color-bg-main);
+  border: 1px solid var(--color-primary-low);
 }
 
 .btn-solid {
-  cursor: pointer;
   padding: 8px 14px;
   border: 0.5px solid var(--color-primary-low);
   background-color: var(--color-primary-light);
@@ -263,36 +257,62 @@ button:hover {
 /* ========================================================= */
 
 .navbar {
-  background-color: var(--color-primary-soft);
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;          /* ← de módulos */
+  align-items: center;
+  flex-wrap: wrap;
   gap: 6px;
-  padding: 10px;
-  border-radius: 10px;      /* ← de módulos */
-  margin: 20px 0;           /* ← de módulos */
+  padding: 10px 16px;
+  margin: 20px 0;
   width: 100%;
+  background-color: var(--color-primary-soft);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 8px 16px;
-  border-radius: 8px;
-  display: inline-block;
-  transition: 0.3s;
-  background-color: var(--color-bg-main); /* ← de módulos */
-  cursor: pointer;
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
   color: var(--color-text-main);
+  white-space: nowrap;
+  text-decoration: none;
+  background-color: var(--color-bg-main);
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.25s ease,
+              color 0.25s ease,
+              transform 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
 }
 
 .nav-item:hover,
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover {
   background-color: var(--color-primary-light);
   color: var(--color-primary-dark);
-  transform: translateY(-2px);
-  font-weight: bolder;
+  font-weight: 700;
+  transform: translateY(-1px);
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.nav-link.active {
+  background-color: var(--color-primary-light);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.nav-item:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
 }
 
 /* ========================================================= */
@@ -301,8 +321,8 @@ button:hover {
 
 .main-content {
   padding: 24px 20px;
-  max-width: 1400px;        /* ← de módulos */
-  margin: 0 auto;
+  max-width: 1400px;
+  margin: 1px auto;
 }
 
 .dashboard-header {
@@ -312,6 +332,7 @@ button:hover {
   padding: 20px;
   background-color: transparent;
   border-radius: 10px;
+  box-shadow: 0 0 2px;
   margin-bottom: 20px;
 }
 
@@ -348,7 +369,6 @@ button:hover {
   align-items: center;
   gap: 10px;
   width: 100%;
-  margin: 0;
 }
 
 .text-box {
@@ -400,62 +420,92 @@ button:hover {
   margin-top: 10px;
 }
 
-.box-section1 {
-  flex: 1;
-  min-width: 140px;
-  padding: 24px;
-  border-radius: 10px;
-  border: 1px solid var(--color-primary-low);
-  background: radial-gradient(circle at top left, var(--color-bg-main), var(--color-primary-light));
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-}
-.box-section2 {
-  flex: 1;
-  min-width: 140px;
-  padding: 24px;
-  border-radius: 10px;
-  border: 1px solid var(--imprevistos-hover);
-  background: radial-gradient(circle at top left, var(--imprevistos-bg), var(--imprevistos-light));
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-}
-.box-section3 {
-  flex: 1;
-  min-width: 140px;
-  padding: 24px;
-  border-radius: 10px;
-  border: 1px solid var(--color-primary-medium);
-  background: radial-gradient(circle at top left, var(--bg-primary), var(--color-primary-low));
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-}
-.box-section4 {
-  flex: 1;
-  min-width: 140px;
-  padding: 24px;
-  border-radius: 10px;
-  border: 1px solid var(--deudas-dark);
-  background: radial-gradient(circle at top left, var(--deudas-bg), var(--deudas-light));
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-}
+/* ─── Box Sections (base compartida) ──────────────────── */
+.box-section1,
+.box-section2,
+.box-section3,
+.box-section4,
 .box-section5 {
   flex: 1;
   min-width: 140px;
-  padding: 24px;
+  padding: 10px 0 100px;
   border-radius: 10px;
-  border: 1px solid var(--gastos-hover);
-  background: radial-gradient(circle at top left, var(--gastos-bg), var(--gastos-light));
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+
 }
 
+/* ─── Colores individuales ────────────────────────────── */
+.box-section1 {
+  border: 1px solid var(--color-primary-low);
+  background: radial-gradient(circle at top left, var(--color-bg-main), var(--color-primary-light));
+}
+
+.box-section2 {
+  border: 1px solid var(--imprevistos-hover);
+  background: radial-gradient(circle at top left, var(--imprevistos-bg), var(--imprevistos-light));
+}
+
+.box-section3 {
+  border: 1px solid var(--color-primary-medium);
+  background: radial-gradient(circle at top left, var(--bg-primary), var(--color-primary-low));
+}
+
+.box-section4 {
+  border: 1px solid var(--deudas-dark);
+  background: radial-gradient(circle at top left, var(--deudas-bg), var(--deudas-light));
+}
+
+.box-section5 {
+  border: 1px solid var(--gastos-hover);
+  background: radial-gradient(circle at top left, var(--gastos-bg), var(--gastos-light));
+}
 
 .iconBox {
   display: flex;
   align-items: center;
 }
+
+/* ─── Estructura interna box-section ─────────────────── */
+.box-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.box-section-title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-main);
+}
+
+.box-section-icon {
+  font-size: var(--text-lg);
+  opacity: 0.7;
+}
+
+.box-section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.box-section-value {
+  font-size: 2rem;
+  font-weight: var(--font-bold);
+  color: var(--color-primary-dark);
+}
+
+.box-section-subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ========================================================= */
+/* ========================= FOOTER ======================== */
+/* ========================================================= */
+
 .footer-app {
   position: fixed;
   bottom: 0;
@@ -475,19 +525,19 @@ button:hover {
 /* ========================================================= */
 
 @media (max-width: 768px) {
-  .boxes {
-    flex-direction: column;
-  }
-
-  .dashboard-header,
-  .header {                 /* ← de módulos */
+  .header,
+  .dashboard-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
     flex-wrap: wrap;
   }
 
-  .box,
+  .boxes {
+    flex-direction: column;
+  }
+
+  .box1,
   .box2 {
     width: 100%;
   }
