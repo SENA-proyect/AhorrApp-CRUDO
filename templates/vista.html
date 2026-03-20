@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-    <title>
-    Validacion-email
-    </title>
+<html lang="es">
 <head>
-    <link rel="stylesheet" href="../static/css/vista.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nueva Contraseña - AhorrApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vista.css') }}">
 </head>
-
-<body >
-
-    
-    <h1 class="a">Confirmacion email</h1>
+<body>
+    <h1 class="a">Restablecer Contraseña</h1>
     <div class="container">
-        <p>Tu correo se ha confirmado correctamente </p> <br>
-         <a class="volver" href="">volver</a>
+        <p>Tu correo se ha confirmado correctamente. Por favor, ingresa tu nueva contraseña:</p>
         
+        <form action="{{ url_for('vista') }}" method="POST">
+            <div class="form_codigo">
+                <input type="password" name="nueva_password" placeholder="Nueva contraseña" class="codigo" required>
+            </div>
+            <div class="form_codigo">
+                <input type="password" name="confirmar_password" placeholder="Confirmar contraseña" class="codigo" required>
+            </div>
+
+            <div class="form_button">
+                <a class="volver" href="{{ url_for('login') }}">Cancelar</a>
+                <button type="submit" class="enviar">Cambiar Contraseña</button>
+            </div>
+        </form>
     </div>
-
-    
-
-
-     
 </body>
 </html>

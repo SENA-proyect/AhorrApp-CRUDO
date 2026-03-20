@@ -151,60 +151,95 @@
   --background: #FFFFFF;
   --foreground:  #2D2D2D;
 }
-body{
-    background-color:var(--color-bg-forms);
-    font-family: Arial, Helvetica, sans-serif;
-    
-}
-
-
-.main-content {
-    position: absolute;
-    top: 30%;
-    left: 35%;
-    box-sizing: border-box;
-}
-
-
-
-
-h1{
-    color: var(--color-primary);
-    text-align: center;   
-}
-p{
-    font-size: var(--text-md);
-    text-align: center;
-    font-weight: bold;
-
-}
-
-
-
-.container{
-    width: 500px;
-    height: 200px;
-    padding: 20px;
-    margin: 20px auto;
-    background-color: #ffffff;
-    border: 1px solid black;
-}
-
-.volver{
-    text-decoration: none ;
+/* Centrado total de la pantalla */
+body {
+    background-color: var(--bg-primary);
     display: flex;
-    padding : 20px 205px;
-    font-size: 20px;
-    outline: black solid 0.5px;
-    color: rgb(4, 7, 2);
-    border-radius: 5px;
-    margin-top: 5%;
-
+    flex-direction: column; /* Alinea H1 y Container uno sobre otro */
+    align-items: center;    /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    min-height: 100vh;      /* Ocupa el 100% de la altura de la ventana */
+    margin: 0;
 }
 
-.volver:hover{
-    background-color: rgb(161, 241, 161);
-    color: black;
-    transition: 0.3;
+/* Estilo del título */
+h1.a {
+    color: var(--color-primary-dark);
+    margin-bottom: 20px;
+    font-size: var(--text-lg);
+}
 
+/* El contenedor de la tarjeta */
+.container {
+    width: 90%;             /* Responsive para móviles */
+    max-width: 450px;       /* Ancho máximo elegante */
+    padding: 30px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Sombra para dar profundidad */
+    text-align: center;
+}
+
+/* Espaciado del texto descriptivo */
+p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-weight: var(--font-medium);
+}
+
+/* Estilo de los inputs */
+.form_codigo {
+    margin-bottom: 15px;
+}
+
+.codigo {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius);
+    background-color: var(--input-background);
+    font-size: var(--text-md);
+    transition: all 0.3s ease;
+}
+
+.codigo:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-transparent);
+}
+
+/* Botones y enlaces */
+.form_button {
+    display: flex;
+    flex-direction: column; /* Botón arriba, cancelar abajo */
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.enviar {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: var(--font-bold);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.enviar:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.volver {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    transition: color 0.3s;
+}
+
+.volver:hover {
+    color: var(--color-error); /* Un toque de rojo al cancelar queda bien */
 }

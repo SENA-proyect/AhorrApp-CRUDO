@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_mail import Mail, Message
 import os
+import random #sera utilizado como token para el "olvidar_contraseña"
 
 # ----------------------------
 # Configuración de la app
@@ -239,23 +240,120 @@ def VentanaModalDashboard():
 def VentanaModalDependientes():
     return render_template('VentanaModalDependientes.html')
 
+# ===================================================================================
+#            <<------------------- VERIFICACION & OLVIDAR_CONTRASEÑA & VISTA ------------------->>
+# ===================================================================================
+
+@app.route('/olvidar_contraseña', methods=['GET', 'POST'])
+def olvidar_contraseña():
+    if request.method == 'POST':
+        email_destino = request.form.get('email')
+        
+        # 1. Verificar si el usuario existe en la DB
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute("SELECT Nombre FROM USUARIOS WHERE Email = %s", (email_destino,))
+        user = cur.fetchone()
+        cur.close()
+        conn.close()
+
+        if user:
+            # 2. Generar un código de recuperación (ej: 123456)
+            codigo = str(random.randint(100000, 999999))
+            
+            # Guardamos el código y el email en la sesión para validarlo luego
+            session['recovery_code'] = codigo
+            session['recovery_email'] = email_destino
+
+            # 3. Enviar el correo al usuario
+            msg = Message(subject="Recuperación de Contraseña - AhorrApp",
+                          sender=app.config['MAIL_USERNAME'],
+                          recipients=[email_destino])
+            
+            msg.body = f"Hola {user[0]},\n\nTu código para restablecer la contraseña es: {codigo}\n\nSi no solicitaste esto, ignora este mensaje."
+            
+            try:
+                mail.send(msg)
+                flash("Código enviado a tu correo. Por favor revísalo.")
+                return redirect(url_for('verificacion')) 
+            except Exception as e:
+                print(f"Error Mail: {e}")
+                flash("Error al enviar el correo.")
+        else:
+            flash("El correo no está registrado en el sistema.")
+            
+    return render_template('olvidar_contraseña.html')
+
+@app.route('/verificacion', methods=['GET', 'POST'])
+def verificacion():
+    if request.method == 'POST':
+        codigo_ingresado = request.form.get('codigo')
+        
+        # Recuperamos el código que guardamos en la ruta anterior
+        codigo_real = session.get('recovery_code')
+
+        if codigo_ingresado == codigo_real:
+            # Si coinciden, limpiamos el código de la sesión por seguridad
+            # Pero dejamos el email para saber a quién le cambiaremos la clave
+            session.pop('recovery_code', None) 
+            flash("Código verificado. Ahora puedes cambiar tu contraseña.")
+            return redirect(url_for('vista')) 
+        else:
+            flash("El código es incorrecto. Inténtalo de nuevo.")
+            return redirect(url_for('verificacion'))
+
+    return render_template('verificacion.html')
+
+@app.route('/vista', methods=['GET', 'POST'])
+def vista():
+    # Verificamos que el usuario realmente haya pasado por la verificación
+    email = session.get('recovery_email')
+    if not email:
+        flash("Acceso no autorizado. Inicia el proceso de nuevo.")
+        return redirect(url_for('olvidar_contraseña'))
+
+    if request.method == 'POST':
+        nueva_pass = request.form.get('nueva_password')
+        confirmar_pass = request.form.get('confirmar_password')
+
+        if nueva_pass != confirmar_pass:
+            flash("Las contraseñas no coinciden.")
+            return redirect(url_for('vista'))
+
+        # 1. Encriptar la nueva contraseña
+        hash_nuevo = generate_password_hash(nueva_pass)
+
+        try:
+            # 2. Actualizar en la base de datos
+            conn = get_db_connection()
+            cur = conn.cursor()
+            cur.execute("""
+                UPDATE USUARIOS 
+                SET Password_hash = %s 
+                WHERE Email = %s
+            """, (hash_nuevo, email))
+            
+            conn.commit()
+            cur.close()
+            conn.close()
+
+            # 3. Limpiar la sesión y redirigir
+            session.pop('recovery_email', None)
+            flash("Contraseña actualizada con éxito. Ya puedes iniciar sesión.")
+            return redirect(url_for('login'))
+
+        except Exception as e:
+            print(f"Error al actualizar clave: {e}")
+            flash("Hubo un error al guardar la nueva contraseña.")
+            
+    return render_template('vista.html')
+
+
 # ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
 # ===================================================================================
 #            <<------------------- PENDIENTE ------------------->>
 # ===================================================================================
 # ?????????????????????????????????????????????????????????????????????????????????????
-
-@app.route('/verificacion')
-def verificacion():
-    return render_template('verificacion.html')
-
-@app.route('/vista')
-def vista():
-    return render_template('vista.html')
-
-@app.route('/olvidar_contraseña')
-def olvidar_contraseña():
-    return render_template('olvidar_contraseña.html')
 
 
 # ------------------------------------------------------------------------------

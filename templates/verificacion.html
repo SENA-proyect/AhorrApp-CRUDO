@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/Verificacion.css" />
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/Verificacion.css') }}">
   </head>
   <body>
     
@@ -17,20 +18,18 @@
 
         <h3>Ingrese el codigo de verificacion que se le envio a su correo</h3>
 
-        <form action="" class="form">
-
+        <form action="{{ url_for('verificacion') }}" class="form" method="post">
             <div class="form_codigo">
 
-                <input type="number" placeholder="ingrese el codigo de verificacion" class="codigo" required>
-
+                <input type="number" name="codigo" placeholder="Ingrese el código" class="codigo" required>
             </div>
 
             <div class="form_button">
+                <a class="salir" href="{{ url_for('olvidar_contraseña') }}">Regresar</a>
 
-                <a class="salir" href="">Regresar</a>
-                <button class="enviar">enviar</button>
-
+                <button type="submit" class="enviar">Enviar</button>
             </div>
+        </form>
 
     </div>
 

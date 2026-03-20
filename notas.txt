@@ -5,7 +5,6 @@ vistas a trabajar
 
 
 3- olvidar_contraseña.html, ver como hacer que la informacion registrada en el formulario se envie directo al correo deligenciado
-
 4- registrar.html, formulario de registrarse
 
 5- VentanaModalActividad.html, buscar la relacion y funcionamiento dentro del aplicativo (implementarlo como componente al usar react)
