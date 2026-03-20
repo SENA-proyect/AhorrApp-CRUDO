@@ -1,0 +1,144 @@
+INSERT INTO USUARIOS (Nombre, Apellido, Rol, Password_hash, Email) VALUES
+('Ana', 'García', 'Administrador', '$2y$10$e0MYzXyjpJS7Pd0RVvOxGu', 'ana.garcia@email.com'),
+('Luis', 'Rodríguez', 'Usuario', '$2y$10$86K/f9m.u1.A6/jS0.XfHe', 'luis.rod@email.com'),
+('Carla', 'Méndez', 'Usuario', '$2y$10$qV4.z9G3Kj7M1R7f5f5f5e', 'carla_m@test.org'),
+('Diego', 'Soto', 'Usuario', '$2y$10$P7Z9x2L1M0B4N5C6V7B8N9', 'diego.soto@empresa.com'),
+('Elena', 'Pérez', 'Administrador', '$2y$10$W1E2R3T4Y5U6I7O8P9A0S1', 'elena_p@web.net');
+
+
+
+
+INSERT INTO CATEGORIAS (Nombre, Color, Icono) VALUES
+('Salario', '#2ECC71', 'cash.png'),
+('Alimentos', '#E74C3C', 'food.png'),
+('Transporte', '#3498DB', 'car.png'),
+('Vivienda', '#9B59B6', 'home.png'),
+('Salud', '#1ABC9C', 'med.png'),
+('Entretenimiento', '#F1C40F', 'game.png'),
+('Educación', '#34495E', 'book.png'),
+('Ahorro Emergencia', '#E67E22', 'safe.png'),
+('Deudas', '#95A5A6', 'debt.png'),
+('Regalos', '#D35400', 'gift.png');
+
+
+
+INSERT INTO MOVIMIENTOS (Tipo_Flujo, Subtipo_Modulo) VALUES
+(1, 'Ingreso'),
+(1, 'Ahorro'),
+(2, 'Gasto'),
+(2, 'Deuda'),
+(2, 'Imprevisto');
+
+
+INSERT INTO ENTRADA (ID_movimiento) VALUES 
+(1), -- Referencia al Movimiento 1 (Ingreso)
+(2), -- Referencia al Movimiento 2 (Ahorro)
+(1), -- Referencia al Movimiento 1 (Ingreso)
+(2), -- Referencia al Movimiento 2 (Ahorro)
+(1); -- Referencia al Movimiento 1 (Ingreso)
+
+
+INSERT INTO AHORROS (ID_entrada, ID_categoria, Monto, Descripcion, Meta, Fecha_registro, Fecha_meta) VALUES
+(2, 3, 500.00, 'Fondo para casa', 'Compra Vivienda', '2000-12-31', '2030-12-31'),
+(4, 5, 1500.00, 'Ahorro médico', 'Cirugía', '2000-12-31', '2026-05-20'),
+(2, 1, 250.00, 'Reserva viaje', 'Vacaciones', '2000-12-31', '2026-08-15'),
+(4, 3, 1000.00, 'Inversión inicial', 'Negocio Propio', '2000-12-31', '2027-01-01'),
+(2, 2, 50.00, 'Cena especial', 'Aniversario', '2000-12-31', '2026-03-10');
+
+
+
+
+
+INSERT INTO INGRESOS (ID_entrada, ID_categoria, Monto, Descripcion, Fuente) VALUES
+(1, 1, 2500.00, 'Pago de nómina mes Feb', 'Empresa Tech'),
+(3, 4, 300.00, 'Venta de artículos usados', 'Marketplace'),
+(5, 1, 150.00, 'Bono por desempeño', 'Empresa Tech'),
+(1, 2, 400.00, 'Freelance diseño', 'Cliente Externo'),
+(3, 4, 1200.00, 'Renta de local', 'Propiedad Raíz');
+
+INSERT INTO SALIDA (ID_movimiento) VALUES 
+(3), -- Referencia al Movimiento 3 (Gasto)
+(4), -- Referencia al Movimiento 4 (Deuda)
+(5), -- Referencia al Movimiento 5 (Imprevisto)
+(3), -- Referencia al Movimiento 3 (Gasto)
+(4); -- Referencia al Movimiento 4 (Deuda)
+
+
+INSERT INTO GASTOS (ID_salida, ID_categoria, Monto, Descripcion) VALUES
+(1, 2, 85.50, 'Supermercado semanal'),
+(4, 3, 600.00, 'Pago de renta departamento'),
+(1, 4, 45.00, 'Cine y palomitas'),
+(4, 2, 30.20, 'Cena en restaurante'),
+(1, 3, 120.00, 'Mantenimiento aire acondicionado');
+
+
+INSERT INTO IMPREVISTOS (ID_salida, ID_categoria, Monto, Causa) VALUES
+(3, 5, 200.00, 'Reparación tubería rota'),
+(3, 5, 50.00, 'Medicamentos urgentes'),
+(3, 1, 120.00, 'Multa de tráfico'),
+(3, 3, 300.00, 'Reparación pantalla celular'),
+(3, 5, 80.00, 'Consulta veterinaria emergencia');
+
+
+INSERT INTO DEUDAS (ID_salida, ID_categoria, Monto, Fuente, Descripcion, Fecha_inicio, Fecha_fin, Estado) VALUES
+(2, 3, 5000.00, 'Banco Central', 'Crédito Automotriz', '2025-01-01', '2030-01-01', 'pendiente'),
+(5, 5, 300.00, 'Tarjeta VISA', 'Compra de lentes', '2026-02-10', '2026-04-10', 'pendiente'),
+(2, 2, 100.00, 'Amigo Juan', 'Préstamo cena', '2026-02-01', '2026-02-15', 'pagada'),
+(5, 3, 1200.00, 'Financiera X', 'Muebles sala', '2026-01-15', '2026-12-15', 'pendiente'),
+(2, 1, 450.00, 'Tienda Departamental', 'Ropa invierno', '2025-11-20', '2026-02-28', 'pagada');
+
+
+
+
+INSERT INTO DEPENDIENTES (Nombre, Ocupacion, Fecha_nacimiento, Relacion, ID_usuario) VALUES
+-- Dependientes de Usuario 1 (Carlos Mendoza)
+('Valentina Mendoza', 'Estudiante Primaria', '2017-09-15', 'Hija', 1),
+('Julián Mendoza', 'Ninguna', '2024-08-14', 'Hijo', 1),
+('Mateo Mendoza', 'Estudiante', '2018-03-12', 'Hijo', 1),
+('Sofía Mendoza', 'Estudiante', '2020-07-25', 'Hija', 1),
+('Pablo Mendoza', 'Estudiante', '2014-12-01', 'Hijo', 1),
+
+-- Dependientes de Usuario 2 (Elena Rivas)
+('Andrea Rivas', 'Ninguna', '2023-01-05', 'Hija', 2),
+('Sara Rivas', 'Estudiante', '2015-04-12', 'Hija', 2),
+('Luciana Rivas', 'Estudiante Preescolar', '2021-02-28', 'Hija', 2),
+('Fernando Rivas', 'Pensionado', '1948-11-22', 'Suegro', 2),
+
+-- Dependientes de Usuario 3 (Mario Duarte)
+('Gabriela Duarte', 'Estudiante Secundaria', '2010-06-05', 'Sobrina', 3),
+('Luis Duarte', 'Estudiante', '2012-11-30', 'Hijo', 3),
+('Kevin Duarte', 'Estudiante', '2016-08-08', 'Hijo', 3),
+('Miguel Duarte', 'Estudiante Secundaria', '2011-10-12', 'Hijo', 3),
+
+-- Dependientes de Usuario 4 (Lucia Torres)
+('Ricardo Torres', 'Ninguna', '2025-01-20', 'Hijo', 4),
+('Beatriz Torres', 'Ama de casa', '1960-12-30', 'Madre', 4),
+('Marta Torres', 'Estudiante', '2019-02-14', 'Sobrina', 4),
+
+-- Dependientes de Usuario 5 (Roberto Gómez)
+('Isabel Gómez', 'Estudiante Universitaria', '2004-03-10', 'Hija', 5),
+('Tomás Gómez', 'Estudiante Primaria', '2019-05-18', 'Nieto', 5),
+('Carmen Gómez', 'Jubilada', '1955-05-14', 'Madre', 5),
+('Jorge Gómez', 'Jubilado', '1950-10-20', 'Padre', 5);
+
+INSERT INTO HISTORIAL (ID_usuario, accion, detalles) VALUES
+(1, 'Inicio de Sesión', 'Acceso exitoso al panel de administración desde la IP 192.168.1.45'),
+(2, 'Registro de Gasto', 'Se añadió un gasto de $85.50 en la categoría Alimentación'),
+(5, 'Actualización de Deuda', 'La deuda con Fuente "Amigo Juan" ha sido marcada como pagada'),
+(3, 'Cambio de Seguridad', 'El usuario modificó su contraseña y actualizó el hash de seguridad'),
+(4, 'Consulta de Reporte', 'El usuario generó un reporte PDF de movimientos mensuales');
+
+
+
+INSERT INTO NOTIFICACIONES (ID_usuario, ID_historial, Tipo, Mensaje, Leida) VALUES
+(1, 1, 'sistema', 'Inicio de sesión detectado desde un nuevo dispositivo.', TRUE),
+(2, 2, 'recordatorio', 'Tu gasto en "Alimentación" ha sido registrado correctamente.', FALSE),
+(5, 3, 'sugerencia', 'Has liquidado una deuda. ¡Buen trabajo! ¿Quieres mover ese flujo a ahorros?', FALSE),
+(3, 4, 'sistema', 'Tu contraseña ha sido actualizada con éxito.', TRUE),
+(4, 5, 'recordatorio', 'Recuerda revisar tus metas de ahorro para este mes.', FALSE);
+
+
+
+
+
+

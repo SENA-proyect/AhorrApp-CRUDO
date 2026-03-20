@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <title>Ahorrapp!</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
         </h2>
         </div>
         <div class="header-right">
-            <a href="/templates/login.html">
+            <a href="{{ url_for('login') }}">
                 <button class="btn-iniciarsesion">Iniciar sesion.</button>
             </a>
         </div>
@@ -69,21 +69,25 @@
         <h3>Contactanos Aqui!</h3>
         <p>Respondemos en menos de 24 horas.</p>
  
-        <form>
-          <div class="form-grid">
-            <input type="text"  placeholder="Nombre">
-            <input type="text"  placeholder="Empresa">
-            <input type="email" placeholder="Email">
-            <input type="text"  placeholder="Presupuesto aprox.">
-          </div>
- 
-          <textarea class="msg-field" rows="3" placeholder="¿Qué quieres construir?"></textarea>
- 
-          <div class="submit-row">
+        <form action="{{ url_for('index') }}" method="POST">
+        <div class="form-grid">
+            <!-- se agrego el atributo name a cada input para que se puedan recuperar los datos en el backend -->
+            <input type="text"  name="nombre" placeholder="Nombre" required>
+            <input type="text"  name="empresa" placeholder="Empresa">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text"  name="presupuesto" placeholder="Presupuesto aprox.">
+        </div>
+
+
+        <textarea name="mensaje" class="msg-field" rows="3" placeholder="¿Qué quieres construir?"></textarea>
+
+        <div class="submit-row">
             <span class="privacy">Tus datos están seguros</span>
             <button type="submit" class="submit-btn">Enviar →</button>
-          </div>
+        </div>
         </form>
+
+
       </div>
  
     </div>

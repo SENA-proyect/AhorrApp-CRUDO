@@ -1,13 +1,11 @@
-CREATE DATABASE IF NOT EXISTS `SEproyectoNA`
+CREATE DATABASE IF NOT EXISTS SEproyectoNA;
 CREATE USER IF NOT EXISTS 'AhorrApp'@'localhost' IDENTIFIED BY 'Ah0rrApp_2026!';
-GRANT ALL PRIVILEGES ON `SEproyectoNA`.* TO 'AhorrApp'@'localhost';
+GRANT ALL PRIVILEGES ON SEproyectoNA.* TO 'AhorrApp'@'localhost';
 
 FLUSH PRIVILEGES;
 
-DEFAULT CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
 
-USE `SEproyectoNA`;
+USE SEproyectoNA;
 
 -- ------------------------------------------------------------------------------------
 -- TRABAJO FINAL – BASE DE DATOS AHORRAPP 25/11/2025
@@ -21,7 +19,8 @@ CREATE TABLE IF NOT EXISTS USUARIOS (
     Rol ENUM('Administrador','Usuario') NOT NULL COMMENT 'Rol del usuario dentro del sistema',
     Password_hash VARCHAR(255) NOT NULL COMMENT 'Hash de la contraseña del usuario',
     Email VARCHAR(255) NOT NULL COMMENT 'Correo electrónico principal' 
-        CHECK (Email REGEXP '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$')
+    -- Email VARCHAR(255) NOT NULL COMMENT 'Correo electrónico principal' 
+    --     CHECK (Email REGEXP '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$')
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 

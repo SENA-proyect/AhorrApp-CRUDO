@@ -1,2 +1,9 @@
 22 vistas en html
 
+1- index.html, correccion de rutas del css y los href, utilizando los url_for
+    1.1 se instalo "pip install Flask-Mail", para que los datos ingresados en el formulari osean enviados directamente al email designado
+2- login.html, correccion de rutas del css y los href, utilizando los url_for
+3- registrar.html, correccion de rutas del css y los href, utilizando los url_for
+    3.1 se instalo "pip install flask-mysqldb" para que los datos se envien a la db en phpmyadmin, establecer conexion en pocas palabras
+4- dashborad.html, correccion de rutas del css y los href, utilizando los url_for
+5- TODOS los modulos...html, correccion de rutas del css y los href, utilizando los url_for

@@ -1,8 +1,8 @@
 vistas a trabajar
 1- index.html, formulario de contactenos ubicado en el footer
     1.2- Crear la tabla de "contactenos" en la db
-
 2- login.html, formulario de iniciar sesion
+
 
 3- olvidar_contraseña.html, ver como hacer que la informacion registrada en el formulario se envie directo al correo deligenciado
 

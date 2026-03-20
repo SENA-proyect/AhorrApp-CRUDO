@@ -3,6 +3,7 @@ import mysql.connector
 from flask_session import Session
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
+from flask_mail import Mail, Message
 import os
 
 # ----------------------------
@@ -25,28 +26,148 @@ db_config = {
 
 def get_db_connection():
     return mysql.connector.connect(**db_config)
+# --------------------------------------------------------
+# Configuración de Mail (Ejemplo para Gmail)
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'proyectofinanzassena@gmail.com'
+app.config['MAIL_PASSWORD'] = 'isep icnx hqlq qczi' # contraseña de aplicacion generada en Gmail para seguridad
+mail = Mail(app)
 
 # =======================================================================================================
 
 # ====================================================================
 #            <<------------------- Ruta principal ------------------->>
 # ====================================================================
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        # se capturan los datos del formulario (usa los 'name' agregados en el HTML)
+        nombre = request.form.get('nombre')
+        email_usuario = request.form.get('email')
+        empresa = request.form.get('empresa')
+        presupuesto = request.form.get('presupuesto')
+        mensaje_texto = request.form.get('mensaje')
+
+        # Creamos el correo
+        msg = Message(subject=f"Nuevo contacto de {nombre}",
+                      sender=app.config['MAIL_USERNAME'],
+                      recipients=['proyectofinanzassena@gmail.com']) # A donde llegara el aviso del contacto
+        
+        msg.body = f"""
+        Has recibido un nuevo mensaje de contacto:
+        
+        Nombre: {nombre}
+        Empresa: {empresa}
+        Email: {email_usuario}
+        Presupuesto: {presupuesto}
+        
+        Mensaje:
+        {mensaje_texto}
+        """
+
+        try:
+            mail.send(msg)
+            flash("¡Mensaje enviado con éxito!")
+        except Exception as e:
+            flash(f"Error al enviar: {str(e)}")
+            
+        return redirect(url_for('index'))
+
+    return render_template('index.html')
+
+# ===================================================================================
+#            <<------------------- Login & Registrar ------------------->>
+# ===================================================================================
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        
+        try:
+            # 1. Conectar usando tu función y buscar al usuario
+            conn = get_db_connection()
+            cur = conn.cursor()
+            
+            # Buscamos por Email
+            query = "SELECT ID_usuario, Nombre, Password_hash, Rol FROM USUARIOS WHERE Email = %s"
+            cur.execute(query, (email,))
+            user = cur.fetchone() # Trae una tupla: (ID, Nombre, Hash, Rol)
+            
+            cur.close()
+            conn.close()
+
+            if user:
+                # 2. Verificar el hash (user[2] es el Password_hash)
+                if check_password_hash(user[2], password):
+                    # 3. Guardar en sesión
+                    session['user_id'] = user[0]
+                    session['user_name'] = user[1]
+                    session['user_role'] = user[3]
+                    
+                    flash(f"Bienvenido de nuevo, {user[1]}")
+                    return redirect(url_for('dashboard'))
+                else:
+                    flash("Contraseña incorrecta", "danger")
+            else:
+                flash("El correo electrónico no está registrado", "warning")
+                
+        except mysql.connector.Error as err:
+            print(f"Error en Login: {err}")
+            flash("Error técnico al intentar iniciar sesión.")
+            
+        return redirect(url_for('login'))
+
+    return render_template('login.html')
+
+@app.route('/registrar', methods=['GET', 'POST'])
+def registrar():
+    if request.method == 'POST':
+        nombres = request.form.get('nombres')
+        apellido = request.form.get('apellido')
+        correo = request.form.get('correo')
+        password = request.form.get('contraseña')
+        
+        pass_encriptado = generate_password_hash(password)
+
+        try:
+            # 1. Obtener la conexión usando tu función
+            conn = get_db_connection()
+            cur = conn.cursor()
+            
+            # 2. Ejecutar el insert
+            query = """
+                INSERT INTO USUARIOS (Nombre, Apellido, Rol, Password_hash, Email) 
+                VALUES (%s, %s, 'Usuario', %s, %s)
+            """
+            cur.execute(query, (nombres, apellido, pass_encriptado, correo))
+            
+            # 3. Guardar cambios y cerrar
+            conn.commit()
+            cur.close()
+            conn.close()
+
+            flash("Registro exitoso. ¡Ya puedes iniciar sesión!")
+            return redirect(url_for('login'))
+
+        except mysql.connector.Error as err:
+            print(f"Error de base de datos: {err}")
+            flash("Error al registrar: Verifica los datos o si el correo ya existe.")
+            return redirect(url_for('registrar'))
+
+    return render_template('registrar.html')
+
+# ===================================================================================
+#            <<------------------- MODULOS & DASHBOARD ------------------->>
+# ===================================================================================
+
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route('/generalpanel')
-def generalpanel():
-    return render_template('generalpanel.html')
-
-@app.route('/')
-@app.route('/index')
-def index():
-    return render_template('index.html')
-
-@app.route('/login')
-def login():
-    return render_template('login.html')
+# ------------------------------------------------------------------------------
 
 @app.route('/moduloAhorros')
 def moduloAhorros():
@@ -76,9 +197,15 @@ def moduloIngresos():
 def modulosCategorias():
     return render_template('modulosCategorias.html')
 
-@app.route('/olvidar_contraseña')
-def olvidar_contraseña():
-    return render_template('olvidar_contraseña.html')
+# ===================================================================================
+#            <<------------------- PANALES GENERALES (administrador) ------------------->>
+# ===================================================================================
+
+@app.route('/generalpanel')
+def generalpanel():
+    return render_template('generalpanel.html')
+
+# -------------------------------------------------------------------------------
 
 @app.route('/panelDependients')
 def panelDependients():
@@ -96,9 +223,9 @@ def panelMovimients():
 def panelUser():
     return render_template('panelUser.html')
 
-@app.route('/registrar')
-def registrar():
-    return render_template('registrar.html')
+# ===================================================================================
+#            <<------------------- VENTANAS MODALES ------------------->>
+# ===================================================================================
 
 @app.route('/VentanaModalActividad')
 def VentanaModalActividad():
@@ -112,6 +239,12 @@ def VentanaModalDashboard():
 def VentanaModalDependientes():
     return render_template('VentanaModalDependientes.html')
 
+# ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+# ===================================================================================
+#            <<------------------- PENDIENTE ------------------->>
+# ===================================================================================
+# ?????????????????????????????????????????????????????????????????????????????????????
+
 @app.route('/verificacion')
 def verificacion():
     return render_template('verificacion.html')
@@ -120,6 +253,9 @@ def verificacion():
 def vista():
     return render_template('vista.html')
 
+@app.route('/olvidar_contraseña')
+def olvidar_contraseña():
+    return render_template('olvidar_contraseña.html')
 
 
 # ------------------------------------------------------------------------------

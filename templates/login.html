@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ahorrapp — Iniciar sesión</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,600;9..144,1,300;9..144,1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/login.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 <body>
 
@@ -71,7 +71,7 @@
           <p class="form-header__sub">Ingresa tus datos para continuar</p>
         </div>
 
-        <form method="POST" action="/login" class="form">
+        <form method="POST" action="{{ url_for('login') }}" class="form">
 
           <div class="field">
             <label class="field__label" for="email">Correo electrónico</label>
@@ -87,7 +87,7 @@
           <div class="field">
             <div class="field__label-row">
               <label class="field__label" for="password">Contraseña</label>
-              <a class="field__forgot" href="/recuperar">¿Olvidaste tu contraseña?</a>
+              <a class="field__forgot" href=" {{ url_for('olvidar_contraseña') }}">¿Olvidaste tu contraseña?</a>
             </div>
             <div class="field__wrap">
               <svg class="field__icon" width="16" height="16" viewBox="0 0 20 20" fill="none">
@@ -121,7 +121,7 @@
         </form>
 
         <p class="register-link">
-          ¿No tienes cuenta? <a href="/registro">Regístrate gratis</a>
+          ¿No tienes cuenta? <a href="{{ url_for('registrar') }}">Regístrate gratis</a>
         </p>
 
       </div>
